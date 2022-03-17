@@ -37,12 +37,17 @@ let ajouter=()=>{
     tr.appendChild(td2)
     tr.appendChild(td3)
     tr.appendChild(td4)
+   // td4.innerHTML="<button onclick=\"supprimer('"+tr.getAttribute("id")+"')\">delete</button>"
     //button supprimer
     let btn=document.createElement("button")
     btn.innerText="supprimer"
-    btn.setAttribute("onclick",
-    "supprimer('"+tr.getAttribute("id")+"')")
-    td4.appendChild(btn);
+    //btn.setAttribute("onclick",
+   // "supprimer('"+tr.getAttribute("id")+"')")
+   btn.addEventListener("click",()=>{
+    supprimer(tr.getAttribute("id"))
+   }) 
+   td4.appendChild(btn);
+    
     //insertion des valeurs 
     td1.innerText=nomValue;
     td2.innerText=prenomValue;
@@ -65,3 +70,7 @@ let vider=()=>{
 let supprimer=(id)=>{
    document.getElementById(id).remove();
 }
+let viderBtn=document.getElementById("viderBtn")
+viderBtn.addEventListener("click",()=>{
+    vider()
+})
