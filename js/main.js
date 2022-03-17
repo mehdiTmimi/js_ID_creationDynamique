@@ -1,3 +1,4 @@
+let ligne=0;
 let ajouter=()=>{
     //recuperation des elements au niveau de la memoire
     let nom=document.getElementById("nom")
@@ -25,13 +26,23 @@ let ajouter=()=>{
     }
     //creation dynamique
     let tr=document.createElement("tr")
+    ligne++;
+    tr.setAttribute("id","ligne"+ligne)
     let td1=document.createElement("td")
     let td2=document.createElement("td")
     let td3=document.createElement("td")
+    let td4=document.createElement("td")
     // liaison
     tr.appendChild(td1)
     tr.appendChild(td2)
     tr.appendChild(td3)
+    tr.appendChild(td4)
+    //button supprimer
+    let btn=document.createElement("button")
+    btn.innerText="supprimer"
+    btn.setAttribute("onclick",
+    "supprimer('"+tr.getAttribute("id")+"')")
+    td4.appendChild(btn);
     //insertion des valeurs 
     td1.innerText=nomValue;
     td2.innerText=prenomValue;
@@ -42,4 +53,15 @@ let ajouter=()=>{
     nom.value=""
     prenom.value=""
     age.value=""
+}
+let vider=()=>{
+    let nom=document.getElementById("nom")
+    let prenom=document.getElementById("prenom")
+    let age=document.getElementById("age")
+    nom.value=""
+    prenom.value=""
+    age.value=""
+}
+let supprimer=(id)=>{
+   document.getElementById(id).remove();
 }

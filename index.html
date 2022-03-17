@@ -16,7 +16,10 @@
           <input id="nom" placeholder="nom" type="text">
           <input id="prenom" placeholder="prenom" type="text">
           <input id="age" placeholder="age" type="number">
-          <button onclick="ajouter()" type="button">ajouter</button>
+          <div>
+            <button onclick="ajouter()" type="button">ajouter</button>
+            <button onclick="vider()" type="button">vider</button>
+          </div>
       </form>
   </div>
   <div>
@@ -26,6 +29,7 @@
                   <th>nom</th>
                   <th>prenom</th>
                   <th>age</th>
+                  <th>options</th>
               </tr>
           </thead>
           <tbody id="tbody">
